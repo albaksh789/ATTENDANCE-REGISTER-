@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b" />
+      <stop offset="50%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#022c22" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+    <linearGradient id="inner" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#ecfdf5" />
+    </linearGradient>
+  </defs>
+  <!-- Background with rounded corners -->
+  <rect width="512" height="512" rx="112" fill="url(#bg)" />
+  <rect x="24" y="24" width="464" height="464" rx="96" fill="none" stroke="url(#gold)" stroke-width="6" opacity="0.6" />
+
+  <!-- Crescent & Star Accent -->
+  <path d="M 330 110 A 38 38 0 1 1 292 72 A 32 32 0 1 0 330 110 Z" fill="url(#gold)" />
+  <polygon points="340,78 343,87 352,87 345,92 348,100 340,95 332,100 335,92 328,87 337,87" fill="url(#gold)" />
+
+  <!-- Rehal / Book Stand Base -->
+  <path d="M 170 360 L 256 310 L 342 360 L 320 376 L 256 338 L 192 376 Z" fill="url(#gold)" />
+  
+  <!-- Open Holy Book / Register Pages -->
+  <path d="M 256 180 C 220 160 140 165 110 185 C 105 188 100 195 100 205 L 100 320 C 140 300 220 295 256 315 Z" fill="url(#inner)" />
+  <path d="M 256 180 C 292 160 372 165 402 185 C 407 188 412 195 412 205 L 412 320 C 372 300 292 295 256 315 Z" fill="url(#inner)" />
+  
+  <!-- Center Book Spine Binding -->
+  <path d="M 252 180 L 260 180 L 260 315 L 252 315 Z" fill="#047857" />
+
+  <!-- Page Lines (Registers / Verses) -->
+  <line x1="130" y1="215" x2="230" y2="205" stroke="#059669" stroke-width="5" stroke-linecap="round" />
+  <line x1="130" y1="240" x2="230" y2="230" stroke="#10b981" stroke-width="4" stroke-linecap="round" />
+  <line x1="130" y1="265" x2="230" y2="255" stroke="#10b981" stroke-width="4" stroke-linecap="round" />
+  <line x1="130" y1="290" x2="210" y2="280" stroke="#10b981" stroke-width="4" stroke-linecap="round" />
+
+  <line x1="282" y1="205" x2="382" y2="215" stroke="#059669" stroke-width="5" stroke-linecap="round" />
+  <line x1="282" y1="230" x2="382" y2="240" stroke="#10b981" stroke-width="4" stroke-linecap="round" />
+  <line x1="282" y1="255" x2="382" y2="265" stroke="#10b981" stroke-width="4" stroke-linecap="round" />
+  <line x1="302" y1="280" x2="382" y2="290" stroke="#10b981" stroke-width="4" stroke-linecap="round" />
+
+  <!-- Bookmark Ribbon -->
+  <path d="M 253 180 L 253 345 L 260 335 L 267 345 L 267 180 Z" fill="url(#gold)" />
+
+  <!-- Title Banner -->
+  <text x="256" y="420" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="34" text-anchor="middle" fill="#ffffff" letter-spacing="3">STUDENTS REGISTER</text>
+  <text x="256" y="452" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="20" text-anchor="middle" fill="url(#gold)" letter-spacing="2">ALBAKSH MOLSAB</text>
+</svg>

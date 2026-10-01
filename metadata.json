@@ -1,0 +1,6 @@
+{
+  "name": "STUDENTS REGISTER — Tuition Management System",
+  "description": "Comprehensive Tuition Management System for ALBAKSH MOLSAB featuring Molisab Teacher App and Parents Portal with attendance, fees, digital receipts, Naat player, and Urdu notifications.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

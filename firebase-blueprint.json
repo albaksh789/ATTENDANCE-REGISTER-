@@ -1,0 +1,169 @@
+{
+  "entities": {
+    "Admin": {
+      "title": "Admin",
+      "description": "Authorized teacher/administrator account",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["email", "name", "role"]
+    },
+    "Tuition": {
+      "title": "Tuition",
+      "description": "Tuition batch/class details",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "maxLength": 100 },
+        "timing": { "type": "string", "maxLength": 50 },
+        "feeDueDate": { "type": "number" },
+        "notes": { "type": "string", "maxLength": 500 },
+        "days": { "type": "string", "maxLength": 100 },
+        "teacherName": { "type": "string", "maxLength": 100 },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["name", "timing", "feeDueDate"]
+    },
+    "Student": {
+      "title": "Student",
+      "description": "Registered tuition student record",
+      "type": "object",
+      "properties": {
+        "fullName": { "type": "string", "maxLength": 100 },
+        "tuitionId": { "type": "string", "maxLength": 100 },
+        "tuitionName": { "type": "string", "maxLength": 100 },
+        "parentName": { "type": "string", "maxLength": 100 },
+        "parentPhone": { "type": "string", "maxLength": 20 },
+        "monthlyFee": { "type": "number" },
+        "admissionDate": { "type": "string", "maxLength": 20 },
+        "status": { "type": "string", "enum": ["Active", "Inactive"] },
+        "notes": { "type": "string", "maxLength": 500 },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["fullName", "tuitionId", "parentName", "parentPhone", "monthlyFee", "status"]
+    },
+    "Attendance": {
+      "title": "Attendance",
+      "description": "Daily attendance record for a student",
+      "type": "object",
+      "properties": {
+        "tuitionId": { "type": "string", "maxLength": 100 },
+        "studentId": { "type": "string", "maxLength": 100 },
+        "studentName": { "type": "string", "maxLength": 100 },
+        "date": { "type": "string", "maxLength": 15 },
+        "status": { "type": "string", "enum": ["Present", "Absent", "Leave"] },
+        "markedBy": { "type": "string", "maxLength": 100 },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["tuitionId", "studentId", "date", "status"]
+    },
+    "MolisabAttendance": {
+      "title": "MolisabAttendance",
+      "description": "Daily attendance and signature of Molisab for tuition session",
+      "type": "object",
+      "properties": {
+        "tuitionId": { "type": "string", "maxLength": 100 },
+        "tuitionName": { "type": "string", "maxLength": 100 },
+        "date": { "type": "string", "maxLength": 15 },
+        "status": { "type": "string", "enum": ["Present", "Absent", "Leave"] },
+        "signatureUrl": { "type": "string" },
+        "notes": { "type": "string", "maxLength": 500 },
+        "markedAt": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["tuitionId", "date", "status"]
+    },
+    "Fee": {
+      "title": "Fee",
+      "description": "Monthly fee payment and receipt record",
+      "type": "object",
+      "properties": {
+        "studentId": { "type": "string", "maxLength": 100 },
+        "studentName": { "type": "string", "maxLength": 100 },
+        "tuitionId": { "type": "string", "maxLength": 100 },
+        "parentPhone": { "type": "string", "maxLength": 20 },
+        "month": { "type": "string", "maxLength": 20 },
+        "year": { "type": "number" },
+        "totalAmount": { "type": "number" },
+        "paidAmount": { "type": "number" },
+        "balance": { "type": "number" },
+        "status": { "type": "string", "enum": ["Paid", "Pending", "Partially Paid"] },
+        "paymentMethod": { "type": "string", "maxLength": 50 },
+        "paymentDate": { "type": "string", "maxLength": 20 },
+        "receiptNumber": { "type": "string", "maxLength": 50 },
+        "notes": { "type": "string", "maxLength": 500 },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["studentId", "month", "year", "totalAmount", "paidAmount", "balance", "status"]
+    },
+    "Notification": {
+      "title": "Notification",
+      "description": "Parent and batch notifications",
+      "type": "object",
+      "properties": {
+        "tuitionId": { "type": "string", "maxLength": 100 },
+        "targetType": { "type": "string", "enum": ["all", "batch", "parent"] },
+        "parentPhone": { "type": "string", "maxLength": 20 },
+        "title": { "type": "string", "maxLength": 150 },
+        "message": { "type": "string", "maxLength": 1000 },
+        "type": { "type": "string", "enum": ["arrival", "attendance", "fee", "holiday", "leave", "announcement"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["title", "message", "type"]
+    },
+    "Setting": {
+      "title": "Setting",
+      "description": "Application settings and audio Naat configuration",
+      "type": "object",
+      "properties": {
+        "naatTitle": { "type": "string", "maxLength": 100 },
+        "naatUrl": { "type": "string" },
+        "naatScheduleMinutes": { "type": "number" },
+        "arrivalNoticeMinutes": { "type": "number" },
+        "templates": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "/admins/{adminId}": {
+      "schema": "Admin",
+      "description": "Admin and teacher accounts"
+    },
+    "/tuitions/{tuitionId}": {
+      "schema": "Tuition",
+      "description": "Tuition batches"
+    },
+    "/students/{studentId}": {
+      "schema": "Student",
+      "description": "Student registry records"
+    },
+    "/attendance/{attendanceId}": {
+      "schema": "Attendance",
+      "description": "Daily student attendance records"
+    },
+    "/molisab_attendance/{molisabAttendanceId}": {
+      "schema": "MolisabAttendance",
+      "description": "Molisab daily attendance and touchscreen signatures"
+    },
+    "/fees/{feeId}": {
+      "schema": "Fee",
+      "description": "Tuition fee records and digital receipts"
+    },
+    "/notifications/{notificationId}": {
+      "schema": "Notification",
+      "description": "System and teacher announcements"
+    },
+    "/settings/{settingId}": {
+      "schema": "Setting",
+      "description": "App settings and audio Naat configuration"
+    }
+  }
+}
